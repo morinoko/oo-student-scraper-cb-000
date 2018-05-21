@@ -3,11 +3,11 @@ require 'pry'
 
 class Scraper
   def self.scrape_index_page( index_url )
-    doc = create_nokogiri_doc( index_url )
+    index_page = create_nokogiri_doc( index_url )
 
     # Create array holding a list of hashes that contain
     # the name, location, and profile_url for each student on the index page
-    all_students = doc.css( ".student-card" )
+    all_students = index_page.css( ".student-card" )
 
     data_from_index_page = all_students.collect do |student|
       student_data = {
