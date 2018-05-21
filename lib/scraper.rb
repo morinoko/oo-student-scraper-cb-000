@@ -23,10 +23,10 @@ class Scraper
   # Create a hash returning data for an individual student
   # Account for when student does not have a particular social profile
   def self.scrape_profile_page( profile_url )
-    doc = create_nokogiri_doc( profile_url )
+    profile_page = create_nokogiri_doc( profile_url )
     student_data = {}
 
-    social_links = doc.css( ".social-icon-container a" ).collect { |link| link.attribute( "href" ).value }
+    social_links = profile_page.css( ".social-icon-container a" ).collect { |link| link.attribute( "href" ).value }
 
     # Loop through social link url and assign to appropriate data variable
     # according to the content of the link
