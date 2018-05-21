@@ -44,8 +44,8 @@ class Scraper
       end
     end
 
-    student_data[ :profile_quote ] = doc.css( ".vitals-text-container .profile-quote" ).text
-    student_data[ :bio ] = doc.css( ".bio-content .description-holder p" ).text
+    student_data[ :profile_quote ] = profile_page.css( ".vitals-text-container .profile-quote" ).text
+    student_data[ :bio ] = profile_page.css( ".bio-content .description-holder p" ).text
 
     student_data
   end
